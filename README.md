@@ -6,7 +6,7 @@
 ## Environment
 
 ``` sh
-pip install torch transformers
+pip install torch
 pip install git+https://github.com/huggingface/diffusers
 ```
 

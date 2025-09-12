@@ -1,12 +1,10 @@
 import torch
-import torch.nn as nn
-import math
 import os
-from diffusers import QwenImageTransformer2DModel, FlowMatchEulerDiscreteScheduler, DiffusionPipeline
+from diffusers import FlowMatchEulerDiscreteScheduler, DiffusionPipeline
 
 if __name__ == "__main__":
-    checkpoint_path = 'OPPOer/Qwen-Image-Pruning'
-    model_name = "/mnt/workspace/group/models/Qwen-Image"
+    model_name = "/mnt/workspace/group/models/Qwen-Image-Pruning"
+    lora_name = '/mnt/workspace/group/models/qwen-image-realism-lora'
 
     if torch.cuda.is_available():
         torch_dtype = torch.bfloat16
@@ -15,42 +13,8 @@ if __name__ == "__main__":
         torch_dtype = torch.bfloat16
         device = "cpu"
 
-    model = QwenImageTransformer2DModel.from_pretrained(
-        model_name, subfolder="transformer", torch_dtype=torch_dtype
-    ).cpu()
-
-    scheduler_config = {
-        "base_image_seq_len": 256,
-        "base_shift": math.log(3),  # We use shift=3 in distillation
-        "invert_sigmas": False,
-        "max_image_seq_len": 8192,
-        "max_shift": math.log(3),  # We use shift=3 in distillation
-        "num_train_timesteps": 1000,
-        "shift": 1.0,
-        "shift_terminal": None,  # set shift_terminal to None
-        "stochastic_sampling": False,
-        "time_shift_type": "exponential",
-        "use_beta_sigmas": False,
-        "use_dynamic_shifting": True,
-        "use_exponential_sigmas": False,
-        "use_karras_sigmas": False,
-    }
-    scheduler = FlowMatchEulerDiscreteScheduler.from_config(scheduler_config)
-
-    pipe = DiffusionPipeline.from_pretrained(
-        model_name, transformer=model, scheduler=scheduler, torch_dtype=torch_dtype
-    )
-
-    state_dict = torch.load(checkpoint_path, weights_only=True, map_location="cpu")
-    block_num = set()
-    for key, value in state_dict.items():
-        block_num.add(int(key.split('.')[0]))
-
-    model.transformer_blocks = model.transformer_blocks[:len(block_num)]
-    model.transformer_blocks.load_state_dict(state_dict)
-    model.to(dtype=torch.bfloat16)
-
-    pipe.load_lora_weights('/mnt/workspace/group/models/qwen-image-realism-lora', adapter_name="lora")
+    pipe = DiffusionPipeline.from_pretrained(model_name, torch_dtype=torch_dtype)
+    pipe.load_lora_weights(lora_name, adapter_name="lora")
     pipe = pipe.to(device)
 
     # Generate image
