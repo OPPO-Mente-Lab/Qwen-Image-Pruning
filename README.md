@@ -18,6 +18,7 @@ Download the checkpoint from [Qwen-Image-Pruning](https://huggingface.co/OPPOer/
 
 ``` sh
 python inference.py
+python inference_12B.py # For Qwen-Image-12B Model Inference
 ```
 
 ### 2. Qwen-Image-Pruning & Realism-LoRA Inference
