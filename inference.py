@@ -3,7 +3,7 @@ import os
 from diffusers import FlowMatchEulerDiscreteScheduler, DiffusionPipeline
 
 if __name__ == "__main__":
-    model_name = "/mnt/workspace/group/models/Qwen-Image-Pruning"
+    model_name = "OPPOer/Qwen-Image-Pruning/Qwen-Image-13B"
 
     if torch.cuda.is_available():
         torch_dtype = torch.bfloat16
