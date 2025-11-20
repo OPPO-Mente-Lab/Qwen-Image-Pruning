@@ -1,0 +1,13 @@
+{
+    "bf16": {
+       "enabled": true
+    },
+    "zero_optimization": {
+        "stage": 2,
+        "offload_optimizer": {
+        "device": "cpu",
+        "pin_memory": true
+      },
+        "overlap_comm": true
+    }
+}

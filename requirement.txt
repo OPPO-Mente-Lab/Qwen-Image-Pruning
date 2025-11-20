@@ -1,0 +1,14 @@
+torch==2.6.0
+torchvision==0.21.0
+torchmetrics==1.7.0
+torchaudio==2.6.0
+timm==1.0.15 
+webdataset==0.2.86 
+torchdata==0.7.1 
+braceexpand==0.1.7 
+tokenizers==0.22.0 
+accelerate==1.1.0
+transformers==4.57.1
+git+https://github.com/huggingface/diffusers
+bitsandbytes==0.45.5 
+opencv-python==4.11.0.86

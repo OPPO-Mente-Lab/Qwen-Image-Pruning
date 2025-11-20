@@ -1,0 +1,24 @@
+compute_environment: LOCAL_MACHINE
+# distributed_type: MULTI_GPU
+distributed_type: DEEPSPEED 
+deepspeed_config:
+  deepspeed_config_file: ./deepspeed_config.json
+  # offload_optimizer_device: cpu
+  # offload_optimizer_ratio: 0.3
+  # offload_optimizer_pin_memory: true
+  # overlap_comm: true
+  # contiguous_gradients: true
+  # offload_param_device: cpu
+  # zero3_init_flag: true
+  # zero3_save_16bit_model: true
+  # zero_stage: 2
+gpu_ids: all
+
+main_training_function: main
+# mixed_precision: 'bf16' # fp16 no  bf16等
+rdzv_backend: static
+same_network: True
+tpu_env: []
+tpu_use_cluster: false
+tpu_use_sudo: false
+use_cpu: false
