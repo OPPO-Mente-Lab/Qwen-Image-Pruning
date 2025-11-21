@@ -10,7 +10,7 @@
 
 ## PPCL image generation results
 <div align="center">
-  <img src="assets/qwen-pruning.jpg">
+  <img src="assets/qwen-pruning.png">
 </div>
 
 <div align="center">
