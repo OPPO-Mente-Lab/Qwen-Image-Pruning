@@ -163,3 +163,23 @@ Run [`script/inference_txt_ffn.sh`](./script/inference_txt_ffn.sh) to load the p
 - ***--height:*** *Specifies the height (in pixels) of the picture to be generated*
 - ***--model_name:*** *Path to the model that generated in model transformation*
 - ***--save_path:*** *Directory path where the generated pictures will be saved.*
+
+
+
+
+## Citation
+
+🌟 If you find our work helpful, please consider citing our paper and leaving valuable stars
+
+```
+@misc{ma2025pluggablepruningcontiguouslayer,
+      title={Pluggable Pruning with Contiguous Layer Distillation for Diffusion Transformers}, 
+      author={Jian Ma and Qirong Peng and Xujie Zhu and Peixing Xie and Chen Chen and Haonan Lu},
+      year={2025},
+      eprint={2511.16156},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2511.16156}, 
+}
+```
+
