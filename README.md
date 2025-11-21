@@ -1,9 +1,22 @@
 
 
 <div align="center">
-  <h1>Qwen-Image-Pruning</h1>
+  <h1>Pluggable Pruning with Contiguous Layer Distillation for Diffusion Transformers</h1>
 <a href='https://huggingface.co/collections/OPPOer/qwen-image-pruning'><img src='https://img.shields.io/badge/🤗%20HuggingFace-Qwen--Image--Pruning-ffd21f.svg'></a>
 </div>
+
+
+
+
+## PPCL image generation results
+<div align="center">
+  <img src="assets/qwen-pruning.jpg">
+</div>
+
+<div align="center">
+  <img src="assets/model.png">
+</div>
+
 
 
 # Environment
