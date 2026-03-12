@@ -1,7 +1,7 @@
 
 
 <div align="center">
-  <h1>Pluggable Pruning with Contiguous Layer Distillation for Diffusion Transformers</h1>
+  <h1>CVPR2026 Pluggable Pruning with Contiguous Layer Distillation for Diffusion Transformers</h1>
   <a href='https://arxiv.org/abs/2511.16156'><img src='https://img.shields.io/badge/arXiv-2508.07607-b31b1b.svg'></a> &nbsp;
 <a href='https://huggingface.co/collections/OPPOer/qwen-image-pruning'><img src='https://img.shields.io/badge/🤗%20HuggingFace-Qwen--Image--Pruning-ffd21f.svg'></a>
 </div>
